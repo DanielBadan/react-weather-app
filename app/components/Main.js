@@ -1,7 +1,12 @@
 import React from 'react';
+import Header from './Header';
+import '../main.css';
 
-const Main = () => (
-	<h1>Hello World</h1>
+const Main = (props) => (
+	<div style={{width: '100%', height: '92%'}}>
+		<Header/>
+		{props.children}
+	</div>
 );
 
 export default Main
