@@ -2,29 +2,38 @@ import React, {PropTypes} from 'react';
 import GetCity from '../components/GetCity';
 
 class GetCityContainer extends React.Component {
-	constructor(props) {
-		super(props);
+	constructor () {
+		super()
 
 		this.state = {
 			city: ''
 		};
-	}
+  }
 
 	handleSubmitCity() {
 		console.log(this.state.city);
 	}
 
-	handleUpdateCity() {
-		console.log('update');
+	handleUpdateCity(e) {
+		this.setState({
+			city: e.target.value
+		})
 	}
 
 	render() { 
 		return (
-			<GetCity direction={this.props.direction} city={this.state.city} onSubmitCity={this.handleSubmitCity} onUpdateCity={this.handleUpdateCity} />
+			<GetCity 
+				direction={this.props.direction} 
+				city={this.state.city} 
+				onSubmitCity={(e) => this.handleSubmitCity(e)} 
+				onUpdateCity={(e) => this.handleUpdateCity(e)} />
 		)
 	}
 }
 
+GetCityContainer.defaultProps = {
+	direction: 'column'
+};
 GetCityContainer.propTypes = {
 	direction: PropTypes.string
 };
