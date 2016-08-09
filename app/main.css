@@ -25,3 +25,10 @@ h2 {
 .m-10 {
 	margin: 10px;
 }
+
+.loading {
+	font-size: 70px;
+	color: #333;
+	padding: 60px 0;
+	text-align: center;
+}

@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import GetCity from '../components/GetCity';
-// import {getForecast, getCurrentWeather} from '../helpers/api';
 
 
 class GetCityContainer extends React.Component {
@@ -16,16 +15,6 @@ class GetCityContainer extends React.Component {
 		e.preventDefault();
 		console.log(this.state.city);
 		this.context.router.push('/forecast/' + this.state.city);
-		// getCurrentWeather(this.state.city)
-		// 	.then((currentWeatherData) => {
-		// 		console.log(currentWeatherData);
-		// 	});
-
-		// getForecast(this.state.city)
-		// 	.then((forecastData) => {
-		// 		console.log(forecastData);
-		// 	});
-
 	}
 
 	handleUpdateCity(e) {
