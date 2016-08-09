@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import Forecast from '../components/Forecast';
-import {getForecast, getCurrentWeather} from '../helpers/api';
+import {getForecast} from '../helpers/api';
 
 class ForecastContainer extends React.Component {
 	constructor() {
@@ -34,12 +34,22 @@ class ForecastContainer extends React.Component {
 			});
 	}
 
+	handleClick(weather) {
+		this.context.router.push({
+			pathname: `/detail/${this.props.routeParams.city}`,
+			state: {
+				weather: weather
+			}
+		});
+	}
+
 	render() {
 		return (
 			<Forecast
 				isLoading={this.state.isLoading}
 				city={this.props.routeParams.city}
 				forecastData={this.state.forecastData}
+				handleClick={(weather) => this.handleClick(weather)}
 			/>
 		)
 	}

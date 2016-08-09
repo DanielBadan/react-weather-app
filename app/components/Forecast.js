@@ -39,7 +39,7 @@ const DayItem = (props) => {
 	var icon = props.day.weather[0].icon;
 
 	return (
-		<div style={styles.dayContainer}>
+		<div style={styles.dayContainer} onClick={props.handleClick}>
 			<img src={`./app/images/weather-icons/${icon}.svg`} alt="Weather"/>
 			<h2 style={styles.subHeader}>{date}</h2>
 		</div>
@@ -50,7 +50,7 @@ const ForecastUi = (props) => (
 	<div>
 		<h1 style={styles.header}>{props.city}</h1>
 		<div style={styles.container}>
-			{props.forecast.list.map(item => <DayItem key={item.dt} day={item} />)}
+			{props.forecast.list.map(item => <DayItem key={item.dt} day={item} handleClick={props.handleClick.bind(null, item)} />)}
 		</div>
 	</div>
 );
@@ -64,6 +64,7 @@ const Forecast = (props) => {
 				<ForecastUi 
 					forecast={props.forecastData}
 					city={props.city}
+					handleClick={props.handleClick}
 				/>
 			}
 		</div>
@@ -73,7 +74,8 @@ const Forecast = (props) => {
 Forecast.propTypes = {
 	isLoading: PropTypes.bool.isRequired,
 	city: PropTypes.string.isRequired,
-	forecastData: PropTypes.object.isRequired
+	forecastData: PropTypes.object.isRequired,
+	handleClick: PropTypes.func.isRequired
 };	
 
 export default Forecast
