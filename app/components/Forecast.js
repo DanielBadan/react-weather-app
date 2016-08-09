@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import {getDate} from '../helpers/utils';
+import DayItem from './DayItem';
 
 var styles = {
 	container: {
@@ -11,39 +11,15 @@ var styles = {
 		maxWidth: 1200,
 		margin: '50px auto'
 	},
-	dayContainer: {
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'center',
-		flexDirection: 'column',
-		margin: 35
-	},
 	header: {
 		fontSize: 65,
 		color: '#333',
 		fontWeight: 100,
 		textAlign: 'center'
 	},
-	subHeader: {
-		fontSize: 30,
-		color: '#333',
-		fontWeight: 100
-	},
 	weather: {
 		height: 130
 	}
-}
-
-const DayItem = (props) => {
-	var date = getDate(props.day.dt);
-	var icon = props.day.weather[0].icon;
-
-	return (
-		<div style={styles.dayContainer} onClick={props.handleClick}>
-			<img src={`./app/images/weather-icons/${icon}.svg`} alt="Weather"/>
-			<h2 style={styles.subHeader}>{date}</h2>
-		</div>
-	);
 };
 
 const ForecastUi = (props) => (

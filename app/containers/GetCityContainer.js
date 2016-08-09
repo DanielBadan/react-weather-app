@@ -1,8 +1,8 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes, Component} from 'react';
 import GetCity from '../components/GetCity';
 
 
-class GetCityContainer extends React.Component {
+class GetCityContainer extends Component {
 	constructor () {
 		super()
 

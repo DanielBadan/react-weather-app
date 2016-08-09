@@ -1,8 +1,8 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes, Component} from 'react';
 import Forecast from '../components/Forecast';
 import {getForecast} from '../helpers/api';
 
-class ForecastContainer extends React.Component {
+class ForecastContainer extends Component {
 	constructor() {
 		super();
 
@@ -14,10 +14,6 @@ class ForecastContainer extends React.Component {
 
 	componentDidMount() {
 		this.makeRequest(this.props.routeParams.city);
-		// getCurrentWeather(this.state.city)
-		// 	.then((currentWeatherData) => {
-		// 		console.log(currentWeatherData);
-		// 	});
 	}
 
 	componentWillReceiveProps(nextProps)  {
